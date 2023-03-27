@@ -1,6 +1,6 @@
 ---
 title: "Project proposal"
-author: "Team name"
+author: "Team Red"
 output: github_document
 ---
 
@@ -11,10 +11,11 @@ library(broom)
 
 ## 1. Introduction
 
-
+Team Red aims to investigate USA Housing data to examine how various traits of houses might of changed throughout the progression of time. Additionally, it aims to compare certain variables of the dataset to understand how they may interact with each other. (For example, comparing house size to yard or garage size).
 
 ## 2. Data
 
+The data provided originates from Kaggle (URL: https://www.kaggle.com/datasets/gpandi007/usa-housing-dataset). The data is split into two csv files, with House_Train being the first half of the dataset and the only .csv to contain salesprices. For this reason, we can only use half the data to obtain limited insights of housing prices. Regardless of that fact, we can combine the two .csv files to obtain the fuller dataset which we will use for our analysis.
 
 
 ## 3. Data analysis plan
