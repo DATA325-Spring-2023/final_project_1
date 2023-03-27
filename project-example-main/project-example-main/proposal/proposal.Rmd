@@ -20,5 +20,5 @@ The data provided originates from Kaggle (URL: https://www.kaggle.com/datasets/g
 
 ## 3. Data analysis plan
 
-
+We plan to analyze the data for patterns. One of the first patterns we will look at is how housing sales prices had changed over the course of time or how housing sizes might have changed. We will also be selecting different variables and attempting to find a relationship between them such as how housing size may influence the number of chimneys or how they could be related. We don't expect to find causal relations, but hope to find new insights from the patterns we will discover by observing various relations.
 
