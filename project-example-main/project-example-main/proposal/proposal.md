@@ -8,7 +8,13 @@ library(broom)
 ```
 
 ## 1\. Introduction
+Data provides crucial information that can help understand certain pattterns, trajectories and the overall progression and stance of a particular subject/project. The USA housing data provides a lot of data that can help people have a better understanding on the housing market. Team Red aims to investigate the USA Housing data to examine how various traits of houses might have changed throughout the progression of time. Additionally, it aims to compare certain variables of the dataset to understand how they may interact with each other. (For example, comparing house size to yard or garage size).Moreoever, by comparing variables we are able to analyze which houses are the most popular amongst American citizens.
 
 ## 2\. Data
 
+The data provided originates from Kaggle (URL: https://www.kaggle.com/datasets/gpandi007/ usa-housing-dataset). The data is split into two csv files, with House_Train being the first half of the dataset and the only .csv to contain sales prices. For this reason, we can only use half the data to obtain limited insights of housing prices. Regardless of that fact, we can combine the two .csv files to obtain the fuller dataset which we will use for our analysis. The more data collected, the more information we are able to gather which provides a more accurate result. Having more accuracy allows one to make a better decision.
+
+
 ## 3\. Data analysis plan
+
+We plan to analyze the data for patterns. One of the first patterns we will look at is how housing sales prices have changed over the course of time or how housing sizes might have changed. We will also be selecting different variables and attempting to find a relationship between them such as how housing size may influence the number of chimneys or how they could be related. We do not expect to find causal relations, but hope to find new insights from the patterns we will discover by observing various relations. Everything has a pattern and being able to identify each pattern can provide a more accurate understanding of the housing situation in the United States of America.
