@@ -1,6 +1,6 @@
 Project proposal
 ================
-Team name
+Team Red
 
 ``` r
 library(tidyverse)
