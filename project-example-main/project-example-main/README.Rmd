@@ -37,3 +37,80 @@ If you got your data off the web, make sure to note the retrieval date.
 
 List any references here. You should, at a minimum, list your data source.
 
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+```{r measurments}
+
+install.packages("readr")
+library(readr)
+library(ggplot2)
+
+testingdataset <- read.csv("housing_train.csv")
+
+ggplot(data = testingdataset, mapping = aes(x = HouseStyle), fill= factor(x)) + 
+  geom_bar()+
+  labs(title = "Bar Plot",
+       x = "House Style",
+       y = "Houses listed",
+       size = "Total of Houses listed")
+
+ggplot(data = testingdataset, mapping = aes(x = BldgType), fill= factor(x)) + 
+  geom_bar()+
+  labs(title = "Bar Plot",
+       x = "Building Type",
+       y = "Houses listed",
+       size = "Total of Houses listed")
+
+ggplot(data = testingdataset, mapping = aes(BldgType, HouseStyle)) + 
+  geom_count()+
+  scale_colour_gradient(low = "black", high = "white")+
+  labs(title = "Bar Plot",
+       x = "Building Type",
+       y = "House Style"
+       )
+```
+
+
+
+
+
+```{r years}
+p <- ggplot(testingdataset, aes(YearBuilt, HouseStyle)) + geom_point()
+
+# Use vars() to supply faceting variables:
+p + facet_wrap(vars(BldgType))
+```
+
+
+
+```{r prices}
+ggplot(testingdataset, aes(YrSold, fill = HouseStyle)) +
+  geom_histogram()
+
+
+ggplot(testingdataset, aes(x=BldgType, y=SalePrice, fill=BldgType)) +
+  geom_boxplot() +
+  scale_y_continuous(labels = scales::scientific_format(digits = 2))
+```
+
+```{r garage}
+
+ggplot(testingdataset, aes(x=BldgType, y=GarageArea, fill=BldgType)) +
+  geom_boxplot() +
+  stat_summary(position = "dodge",
+           fun=mean, geom='point', shape=20)
+```
+
+```{r linear}
+
+ggplot(testingdataset,aes(YearBuilt, SalePrice, fill = YrSold)) +
+  geom_point() +
+  geom_smooth(method='lm')
+```
+
