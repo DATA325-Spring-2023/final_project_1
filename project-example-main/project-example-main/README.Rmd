@@ -67,9 +67,8 @@ ggplot(data = testingdataset, mapping = aes(x = BldgType), fill= factor(x)) +
        y = "Houses listed",
        size = "Total of Houses listed")
 
-ggplot(data = testingdataset, mapping = aes(BldgType, HouseStyle)) + 
+ggplot(data = testingdataset, mapping = aes(BldgType, HouseStyle, color = BldgType)) + 
   geom_count()+
-  scale_colour_gradient(low = "black", high = "white")+
   labs(title = "Bar Plot",
        x = "Building Type",
        y = "House Style"
@@ -109,7 +108,14 @@ ggplot(testingdataset, aes(x=BldgType, y=GarageArea, fill=BldgType)) +
 
 ```{r linear}
 
-ggplot(testingdataset,aes(YearBuilt, SalePrice, fill = YrSold)) +
+ggplot(testingdataset,aes(YearBuilt, SalePrice, fill = YrSold, color = YrSold)) +
+  geom_point() +
+  geom_smooth(method='lm')
+```
+
+```{r linear 2}
+
+ggplot(testingdataset,aes(SalePrice, LotArea, fill = YrSold, color = YrSold)) +
   geom_point() +
   geom_smooth(method='lm')
 ```
