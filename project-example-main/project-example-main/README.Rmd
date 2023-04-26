@@ -20,7 +20,7 @@ And make sure to hide your code with  `echo = FALSE` unless the point you are tr
 Your results with proper output and graphics go in your presentation, this space is for a brief summary of your project.
 
 ```{r load-data, echo = FALSE}
-# load data here, if you like
+testingdataset <- read.csv("/cloud/project/project-example-main/project-example-main/data/housing_train.csv")
 ```
 
 ## Presentation
@@ -43,36 +43,36 @@ List any references here. You should, at a minimum, list your data source.
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-```
-
-```{r measurments}
-
 install.packages("readr")
 library(readr)
 library(ggplot2)
 
-testingdataset <- read.csv("housing_train.csv")
+```
 
-ggplot(data = testingdataset, mapping = aes(x = HouseStyle), fill= factor(x)) + 
+```{r measurments, echo=FALSE}
+
+ggplot(data = testingdataset, mapping = aes(x = HouseStyle, fill = HouseStyle,)) + 
   geom_bar()+
-  labs(title = "Bar Plot",
+  labs(title = "Houses Listed By Housing Style",
        x = "House Style",
-       y = "Houses listed",
-       size = "Total of Houses listed")
+       y = "# Houses Listed",
+       ) 
 
-ggplot(data = testingdataset, mapping = aes(x = BldgType), fill= factor(x)) + 
-  geom_bar()+
-  labs(title = "Bar Plot",
+ggplot(data = testingdataset, mapping = aes(x = BldgType, fill = BldgType)) +
+  geom_bar() +
+  labs(title = "Houses Listed By Building Type",
        x = "Building Type",
-       y = "Houses listed",
-       size = "Total of Houses listed")
+       y = "# Houses listed",
+       )
 
 ggplot(data = testingdataset, mapping = aes(BldgType, HouseStyle, color = BldgType)) + 
   geom_count()+
-  labs(title = "Bar Plot",
+  labs(title = "Building Type & Style",
        x = "Building Type",
-       y = "House Style"
-       )
+       y = "House Style",
+       ) +
+  theme(legend.position = "none")
+
 ```
 
 
@@ -83,19 +83,31 @@ ggplot(data = testingdataset, mapping = aes(BldgType, HouseStyle, color = BldgTy
 p <- ggplot(testingdataset, aes(YearBuilt, HouseStyle)) + geom_point()
 
 # Use vars() to supply faceting variables:
-p + facet_wrap(vars(BldgType))
+p + facet_wrap(vars(BldgType)) +
+  labs(title = "Style of Houses Built grouped by Building Type (approx. 1860-2020)",
+       x = "Year Built",
+       y = "Style of House",
+       )
 ```
 
 
 
 ```{r prices}
 ggplot(testingdataset, aes(YrSold, fill = HouseStyle)) +
-  geom_histogram()
+  geom_histogram() +
+    labs(title = "Types of Houses Sold (2006-2010)",
+         x = "Year Sold",
+         y = " ",
+       )
 
 
 ggplot(testingdataset, aes(x=BldgType, y=SalePrice, fill=BldgType)) +
   geom_boxplot() +
-  scale_y_continuous(labels = scales::scientific_format(digits = 2))
+    labs(title = "Central Tendencies of Sale's Price based on Building Type",
+         x = "Building Type",
+         y = "Sale's Price ($)",
+       ) +
+  scale_y_continuous(labels = function(x) format(x, scientific = FALSE, big.mark = ",")) 
 ```
 
 ```{r garage}
@@ -103,20 +115,35 @@ ggplot(testingdataset, aes(x=BldgType, y=SalePrice, fill=BldgType)) +
 ggplot(testingdataset, aes(x=BldgType, y=GarageArea, fill=BldgType)) +
   geom_boxplot() +
   stat_summary(position = "dodge",
-           fun=mean, geom='point', shape=20)
+           fun=mean, geom='point', shape=20) +
+  labs(title = "Central Tendencies of Garage Area based on Building Type",
+       x = "Building Type",
+       y = "Garage Area (Feet)",
+       )
 ```
 
 ```{r linear}
 
 ggplot(testingdataset,aes(YearBuilt, SalePrice, fill = YrSold, color = YrSold)) +
   geom_point() +
-  geom_smooth(method='lm')
+  geom_smooth(method='lm') +
+  scale_y_continuous(labels = function(x) format(x, scientific = FALSE, big.mark = ",")) +
+     labs(title = "Prediction Model of SalePrice and Year Built",
+       x = "Sale's Price ($)",
+       y = "Lot Area (Feet)",
+       )
 ```
 
 ```{r linear 2}
 
 ggplot(testingdataset,aes(SalePrice, LotArea, fill = YrSold, color = YrSold)) +
   geom_point() +
-  geom_smooth(method='lm')
+  geom_smooth(method='lm') +
+  scale_y_continuous(labels = function(x) format(x, big.mark = ",")) +
+  scale_x_continuous(labels = function(x) format(x, scientific = FALSE, big.mark = ",")) +
+    labs(title = "Prediction Model of SalePrice and Lot Area",
+       x = "Sale's Price ($)",
+       y = "Lot Area (Feet)",
+       )
 ```
 
