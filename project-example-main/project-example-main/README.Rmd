@@ -1,6 +1,6 @@
 ---
-title: Project title
-author: by Team name
+title: Final Project
+author: Team Red
 output: github_document
 ---
 
