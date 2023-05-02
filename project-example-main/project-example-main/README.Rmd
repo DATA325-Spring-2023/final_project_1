@@ -79,8 +79,8 @@ ggplot(data = testingdataset, mapping = aes(BldgType, HouseStyle, color = BldgTy
   labs(title = "Building Type & Style",
        x = "Building Type",
        y = "House Style",
-       ) +
-  theme(legend.position = "none")
+       size = "Number of Listed Properties",
+       color = "Building Type") 
 
 ```
 Plot 3:
