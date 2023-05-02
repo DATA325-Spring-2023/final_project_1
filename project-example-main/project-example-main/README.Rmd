@@ -6,18 +6,24 @@ output: github_document
 
 ## Summary
 
-Write-up of your project and findings go here. 
-Think of this as the text of your presentation. 
-The length should be roughly 5 minutes when read out loud.
-Although pacing varies, a 5-minute speech is roughly 750 words. 
-To use the word count addin, select the text you want to count the words of (probably this is the 
-Summary section of this document, go to Addins, and select the `Word count` addin).
-This addin counts words using two different algorithms, but the results should be similar and as long as you're in the ballpark of 750 words, you're good! 
-The addin will ignore code chunks and only count the words in prose.
+This project is an exploratory examination of US housing data. This data consists of several elements such as listing price, building type, garage area, and etc. The purpose of this project was to examine how some variables such as lot area affects the sales price of houses. Additionally, we examined the relationships formed by variables such as the relationship between houses listed and the quantity of their building type that of which was listed. The team used various visualization techniques to examine
+this data.
 
-You can also load your data here and present any analysis results / plots, but I strongly urge you to keep that to a minimum (maybe only the most important graphic, if you have one you can choose). 
-And make sure to hide your code with  `echo = FALSE` unless the point you are trying to make is about the code itself.
-Your results with proper output and graphics go in your presentation, this space is for a brief summary of your project.
+Some challenges arose when dissecting the data provided, one of which was determining which variables to focus on as each listing has various details. Due to the amount of variables some have been omitted from our research in order to save time and simplify the project. Other challenges include deciphering what models we wish to make, due to the abundance of data, in order to better discover and express what patterns or relationships that can be formed from the US Housing dataset.
+
+The first three graphs are a focus on the housing market’s composition of house styles and building type. For our purposes and as shown in the dataset, housing style describes the amount of stories that the house has, the most common being 1 story houses in the dataset. Building Type describes the type of building the house is; for example, a single-family detached house or a duplex. Notably Single-family detached houses were the most common with around 1250 units listed in the dataset. The first two graphs examine houses listed and their respective styles and building types. The third graph takes both house style and building type into consideration and shows us that the most commonly listed house was 1st story single family housings followed secondly by 2-story single family housings. While we may lack some data to prove this, it is a hint at the change of housing markets where households had at one time held multiple families and/or multiple generations. This could hint at a greater isolation of inhabitants, yet this is beyond the purview of our study.
+
+The fourth and fifth graph are representations of house style and their relationships with the year that they were built and the year that they so happened to be sold. The following sixth graph is a representation of house style and sales price.
+
+The seventh graph checks building type and compares it to sale price, similar to graph six.
+The eighth graph is a representation of when the house was built and when it sold while also observing the price of those houses.
+
+The last graph is a predictive graph of how lot area affects sales price and what years these houses were sold.
+
+Should we continue this study or re-perform it we may choose to have a more structured plan on determining which variables should be examined and compose a more formal speculation of how these variables may interact with each other. It may have been in our best interest to include a glossary or a description of the variables not for the sake of observers, but for us who had to work attempting to understand the differences of building type and housing styles.
+
+In conclusion, this research project provides a valuable insight into the relationship between various housing characteristics and the number of listings and sales. The team found that single-family detached homes were the most commonly listed and sold, while two-family conversions were the least frequently listed and sold. Additionally, 1 and 2 story houses were the most commonly built across all building types and the most commonly sold house styles.
+
 
 ```{r load-data, echo = FALSE}
 testingdataset <- read.csv("/cloud/project/project-example-main/project-example-main/data/housing_train.csv")
