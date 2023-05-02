@@ -34,8 +34,8 @@ Link to dataset: https://www.kaggle.com/datasets/gpandi007/usa-housing-dataset
 Retrieval date: March 15, 2023
 
 ## References
+Ganesh, 2018, USA Housing dataset, housing_train.csv, Ganesh, viewed 27 March 2023, <https://www.kaggle.com/datasets/gpandi007/usa-housing-dataset>.
 
-https://www.kaggle.com/datasets/gpandi007/usa-housing-dataset
 
 
 
